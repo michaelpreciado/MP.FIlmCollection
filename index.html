@@ -4,40 +4,14 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Michael Preciado's Film Photography</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" integrity="sha512-yPnGIBZkL+eUgE7aUpgCOIaLEuGXdEiuxy0Nkesf1zjO0yQA/Xu6xD+/ZpTZp5hmTHW2aBXaF1kXwj9fLr/D3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <!-- partial:index.partial.html -->
-                 <!-- partial:index.partial.html -->
-
-        <div class="box" id="box1"></div>
-        <div class="box" id="box2"></div>
-        <div class="box" id="box3"></div>
-        <div class="box" id="box4"></div>
-        <div class="box" id="box5"></div>
-        <div class="box" id="box6"></div>
-        <div class="box" id="box7"></div>
-        <div class="box" id="box8"></div>
-        <div class="box" id="box9"></div>
-        <div class="box" id="box10"></div>
-        <div class="box" id="box11"></div>
-        <div class="box" id="box12"></div>
-        <div class="box" id="box13"></div>
-        <div class="box" id="box14"></div>
-        <div class="box" id="box15"></div>
-        <div class="box" id="box16"></div>
-        <div class="box" id="box17"></div>
-        <div class="box" id="box18"></div>
-        <div class="box" id="box19"></div>
-        <div class="box" id="box20"></div>
-        <div class="box" id="box21"></div>
-        <div class="box" id="box22"></div>
-        <div class="box" id="box23"></div>
-        <div class="box" id="box24"></div>
+        <div class="container" id="image-container"></div>
     
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", () => {
         const images = [
           'images/brunch.jpeg',
           'images/hike.jpeg',
@@ -66,40 +40,36 @@
           'images/art.jpeg',
         ];
     
-        const boxes = document.querySelectorAll('.box');
-        const shuffledImages = images.sort(() => 0.5 - Math.random());
-        boxes.forEach((box, index) => {
-          if (index < shuffledImages.length) {
-            box.style.backgroundImage = `url(${shuffledImages[index]})`;
+        const container = document.getElementById('image-container');
+        const fragment = document.createDocumentFragment();
+    
+        // You got th1s :)
+        const shuffle = (array) => {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
           }
+          return array;
+        };
+    
+        const shuffledImages = shuffle([...images]);
+    
+        shuffledImages.forEach((imgSrc, index) => {
+          const box = document.createElement('div');
+          box.classList.add('box');
+          box.id = `box${index + 1}`;
+          box.style.backgroundImage = `url(${imgSrc})`;
+          box.style.backgroundSize = 'cover';
+          box.style.backgroundPosition = 'center';
+          fragment.appendChild(box);
         });
+    
+        container.appendChild(fragment);
       });
     </script>
     
-    <!-- partial -->
-      <script src="./script.js"></script>
-    <style>
-      body {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .box {
-        flex: 1 1 calc(33.333% - 60px);
-        margin: 30px;
-      }
-
-      @media (max-width: 768px) {
-        .box {
-          flex: 1 1 calc(50% - 60px);
-        }
-      }
-
-      @media (max-width: 480px) {
-        .box {
-          flex: 1 1 100%;
-        }
-      }
-    </style>
+      <script src="./script.js" defer></script>
+      <div class="us-canvas" data-us-project="CdHCsuh8OTuaVKAlPPKc?update=1.5"></div>
+      <script src='https://cdn.unicorn.studio/v1.3.1/unicornStudio.umd.js' defer></script>
     </body>
     </html>

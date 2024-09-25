@@ -41,30 +41,23 @@
         ];
     
         const container = document.getElementById('image-container');
-        const fragment = document.createDocumentFragment();
     
-        // You got th1s :)
-        const shuffle = (array) => {
-          for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-          }
-          return array;
-        };
+        // Shuffle images using Fisher-Yates algorithm
+        for (let i = images.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [images[i], images[j]] = [images[j], images[i]];
+        }
     
-        const shuffledImages = shuffle([...images]);
-    
-        shuffledImages.forEach((imgSrc, index) => {
+        // Create image boxes and append to container
+        images.forEach((imgSrc, index) => {
           const box = document.createElement('div');
           box.classList.add('box');
           box.id = `box${index + 1}`;
           box.style.backgroundImage = `url(${imgSrc})`;
           box.style.backgroundSize = 'cover';
           box.style.backgroundPosition = 'center';
-          fragment.appendChild(box);
+          container.appendChild(box);
         });
-    
-        container.appendChild(fragment);
       });
     </script>
     

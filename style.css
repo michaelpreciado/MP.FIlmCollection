@@ -1,90 +1,90 @@
- :root {
-   text-align: center;
- }
+:root {
+  text-align: center;
+}
 
- .box {
-   background-size: contain; /* Made images smaller */
-   background-position: center center;
-   width: 80%; /* Reduced width to see background */
-   max-width: 80%;
-   position: relative;
-   display: inline-block;
-   margin: 10px;
-   border: none; /* Removed border for minimalistic look */
-   border-radius: 5px; /* Softer edges */
-   background-attachment: scroll;
-   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-   background-color: rgba(255, 255, 255, 0.3); /* Increased transparency */
-   opacity: 0.85; /* Made images more transparent */
- }
- 
- .box:nth-of-type(1),
- .box:nth-of-type(2),
- .box:nth-of-type(3) {
-   background: center/contain no-repeat; /* Ensured background images are contained */
- }
- 
- .box:before, .box:after {
-   content: "";
-   display: block;
-   width: 100%;
-   padding-bottom: 60%;
-   top: 0;
-   left: 0;
-   background: inherit;
-   border-radius: inherit;
- }
- 
- .box:after {
-   position: relative;
- }
- 
- .box:before {
-   position: absolute;
-   filter: blur(3px); /* Softer blur for edges */
-   top: 5px;
-   background-color: rgba(255, 255, 255, 0.1); /* Added slight transparency */
- }
- 
- .custom-background {
-   background-image: url('images/street.jpeg');
- }
- 
- @media (min-width: 769px) {
-   .box {
-     flex: 1 1 calc(33.333% - 20px);
-     margin: 10px;
-   }
- }
- 
- @media (max-width: 768px) {
-   .box {
-     flex: 1 1 100%;
-     margin: 10px 0;
-   }
- }
- 
- .container {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   gap: 10px; /* Maintained for spacing */
- }
- 
- body {
-   margin: 0;
-   background-color: #1a1a1a; /* Darker background for minimalistic theme */
- }
- 
- canvas {
-   display: block;
- }
- 
- .us-canvas {
-   width: 100vw;
-   height: 100vh;
-   position: absolute;
-   top: 0;
-   left: 0;
-   z-index: -1;
- }
+.box {
+  background-size: contain; /* Made images smaller */
+  background-position: center;
+  width: 80%; /* Reduced width to see background */
+  max-width: 80%;
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  border: none; /* Removed border for minimalistic look */
+  border-radius: 5px; /* Softer edges */
+  background-attachment: scroll;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.3); /* Increased transparency */
+  opacity: 0.85; /* Made images more transparent */
+}
+
+.box:nth-of-type(1),
+.box:nth-of-type(2),
+.box:nth-of-type(3) {
+  background: center/contain no-repeat; /* Ensured background images are contained */
+}
+
+.box:before, .box:after {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 60%;
+  top: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.box:after {
+  position: relative;
+}
+
+.box:before {
+  position: absolute;
+  filter: blur(3px); /* Softer blur for edges */
+  top: 5px;
+  background-color: rgba(255, 255, 255, 0.1); /* Added slight transparency */
+}
+
+.custom-background {
+  background-image: url('images/street.jpeg');
+}
+
+@media (min-width: 769px) {
+  .box {
+    flex: 1 1 calc(33.333% - 20px);
+    margin: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    flex: 1 1 100%;
+    margin: 10px 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Maintained for spacing */
+}
+
+body {
+  margin: 0;
+  background-color: #1a1a1a; /* Darker background for minimalistic theme */
+}
+
+canvas {
+  display: block;
+}
+
+.us-canvas {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

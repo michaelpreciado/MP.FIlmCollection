@@ -28,8 +28,8 @@ class Particle {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
     this.size = Math.random() * 5 + 1;
-    this.speedX = Math.random() * 2 - 1.5;
-    this.speedY = Math.random() * 2 - 1.5;
+    this.speedX = Math.random() * 1 - 0.5; // Reduced from 2 to 1
+    this.speedY = Math.random() * 1 - 0.5; // Reduced from 2 to 1
   }
 
   update() {
@@ -54,10 +54,10 @@ const particlePool = Array.from({ length: MAX_PARTICLES }, () => new Particle())
 // Animation loop
 const animate = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (const particle of particlePool) {
+  particlePool.forEach(particle => {
     particle.update();
     particle.draw();
-  }
+  });
   requestAnimationFrame(animate);
 };
 
@@ -75,7 +75,7 @@ UnicornStudio.init().then(([scene]) => {
 });
 
 // Prevent scrolling for a fluid experience
-window.addEventListener('scroll', (event) => {
+window.addEventListener('scroll', event => {
   event.preventDefault();
   window.scrollTo(0, 0);
 });

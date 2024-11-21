@@ -4,65 +4,37 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Michael Preciado's Film Photography</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" integrity="sha512-yPnGIBZkL+eUgE7aUpgCOIaLEuGXdEiuxy0Nkesf1zjO0yQA/Xu6xD+/ZpTZp5hmTHW2aBXaF1kXwj9fLr/D3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <link rel="stylesheet" href="./style.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+      <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="container" id="image-container"></div>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const images = [
-          'images/brunch.jpeg',
-          'images/hike.jpeg',
-          'images/sky.jpeg',
-          'images/simmy.jpeg',
-          'images/nails.jpeg',
-          'images/sign.jpeg',
-          'images/street.jpeg',
-          'images/tree.jpeg',
-          'images/backyard.jpeg',
-          'images/vinyl.jpeg',
-          'images/tesla.jpeg',
-          'images/taz.jpeg',
-          'images/sonora.jpeg',
-          'images/flowers.jpeg',
-          'images/goddess.jpeg',
-          'images/soju.jpeg',
-          'images/tara.jpeg',
-          'images/legs.jpeg',
-          'images/kitchen.jpeg',
-          'images/back2.jpeg',
-          'images/Michael.jpeg',
-          'images/rug.jpeg',
-          'images/charger.jpeg',
-          'images/shillouette.jpeg',
-          'images/art.jpeg',
-        ];
-    
-        const container = document.getElementById('image-container');
-    
-        // Shuffle images using Fisher-Yates algorithm
-        for (let i = images.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [images[i], images[j]] = [images[j], images[i]];
-        }
-    
-        // Create image boxes and append to container
-        images.forEach((imgSrc, index) => {
-          const box = document.createElement('div');
-          box.classList.add('box');
-          box.id = `box${index + 1}`;
-          box.style.backgroundImage = `url(${imgSrc})`;
-          box.style.backgroundSize = 'cover';
-          box.style.backgroundPosition = 'center';
-          container.appendChild(box);
-        });
-      });
-    </script>
-    
-      <script src="./script.js" defer></script>
-      <div class="us-canvas" data-us-project="CdHCsuh8OTuaVKAlPPKc?update=1.5"></div>
-      <script src='https://cdn.unicorn.studio/v1.3.1/unicornStudio.umd.js' defer></script>
+        <header>
+            <h1>michael_preciado</h1>
+            <button id="menu-toggle" aria-label="Toggle Menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </header>
+
+        <div class="container" id="image-container">
+            <div class="gallery-grid"></div>
+            <div class="links-container" id="links-container">
+                <div class="nav-section">
+                    <a href="#" class="page-link">_about</a>
+                    <a href="#" class="page-link">_portfolio</a>
+                    <a href="#" class="page-link">_contact</a>
+                    <a href="#" class="page-link">_blog</a>
+                    <a href="#" class="page-link">_shop</a>
+                </div>
+                <div class="business-info">
+                    <p>Michael Preciado</p>
+                    <p>Film Photography</p>
+                    <p>Los Angeles, CA</p>
+                    <p>contact@michaelpreciado.com</p>
+                  
+                </div>
+            </div>
+        </div>
+        <script src="./script.js" defer></script>
     </body>
     </html>
